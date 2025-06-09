@@ -1,3 +1,13 @@
+v0.5 YYYY-MM-DD
+* Migrated codebase to Python 3 (from Python 2).
+* Added support for sending atmospheric pressure (barometer) and precipitation (rain) data.
+* Improved error handling:
+    - More detailed logging for HTTP errors, including response body.
+    - Specific handling for HTTP 401 (Unauthorized) errors.
+* Fixed a bug in URL formatting that could cause a TypeError with unexpected data types.
+* Updated documentation (readme.txt) for Python 3 compatibility, new features, and installation instructions.
+* Updated install.py with new version number and Python 3 style improvements.
+
 v0.1 06nov2018
 * Initial release
 

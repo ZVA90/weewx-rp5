@@ -7,8 +7,8 @@ def loader():
 
 class RP5Installer(ExtensionInstaller):
     def __init__(self):
-        super(RP5Installer, self).__init__(
-            version='0.4',
+        super().__init__(
+            version='0.5',
             name='rp5',
             description='Upload archive data to rp5.ru',
             author='Sapegin Oleg',
