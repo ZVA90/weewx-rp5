@@ -2,3 +2,4 @@
 ._*
 *.tar.gz
 !weewx-rp5-*.tar.gz
+*.tar.gz
