@@ -1,10 +1,11 @@
 import sys
-import Queue
+import queue
 import syslog
 import weewx.restx
-import urllib2
 import weewx.units
-
+import weewx.manager
+import urllib.request
+import urllib.error
 
 # ============================================================================
 #                            class StdRP5
@@ -27,7 +28,7 @@ class StdRP5(weewx.restx.StdRESTful):
         _manager_dict = weewx.manager.get_manager_dict_from_config(config_dict,
                                                                    'wx_binding')
 
-        self.archive_queue = Queue.Queue()
+        self.archive_queue = queue.Queue()
         self.archive_thread = RP5Thread(self.archive_queue,
                                         _manager_dict,
                                         protocol_name=StdRP5.protocol_name,
@@ -51,7 +52,7 @@ class RP5Thread(weewx.restx.RESTThread):
 
     def __init__(self, queue, manager_dict, api_key, server_url,
                  protocol_name="Unknown-RESTful", post_interval=2,
-                 max_backlog=sys.maxint, stale=None, log_success=True,
+                 max_backlog=sys.maxsize, stale=None, log_success=True,
                  log_failure=True, timeout=5, max_tries=3, retry_wait=2,
                  skip_upload=False):
 
@@ -97,10 +98,10 @@ class RP5Thread(weewx.restx.RESTThread):
     def post_request(self, request, data=None):
         try:
             try:
-                _response = urllib2.urlopen(request, timeout=self.timeout)
+                _response = urllib.request.urlopen(request, timeout=self.timeout)
             except TypeError:
-                _response = urllib2.urlopen(request)
-        except urllib2.HTTPError, e:
+                _response = urllib.request.urlopen(request)
+        except urllib.error.HTTPError as e:
             if e.code == 400 or e.code == 429:
                 raise weewx.restx.FailedPost("server returned '%s'" % e)
             else:

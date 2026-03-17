@@ -1,18 +1,16 @@
 from setup import ExtensionInstaller
 
-
 def loader():
     return RP5Installer()
-
 
 class RP5Installer(ExtensionInstaller):
     def __init__(self):
         super(RP5Installer, self).__init__(
-            version='0.4',
+            version='0.5',
             name='rp5',
-            description='Upload archive data to rp5.ru',
-            author='Sapegin Oleg',
-            author_email='sapegin.o@gmail.com',
+            description='Upload archive data to rp5.ru (Python 3 compatible)',
+            author='Sapegin Oleg / Updated by ZVA90',
+            author_email='vasiliiazakharov@gmail.com',
             restful_services='user.rp5.StdRP5',
             config={
                 'StdRESTful': {

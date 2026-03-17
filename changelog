@@ -8,4 +8,11 @@ v0.3 02dec2018
 * Now wind and wind gust data in m/s
 
 v0.4 26mar2019
-* Uploads rate limit added. RP5-API requires no more than 60 r/m
+* Uploads rate limit added.
+RP5-API requires no more than 60 r/m
+
+v0.5 17mar2026
+* Migrated to Python 3.
+* Updated imports (urllib.request, queue).
+* Replaced sys.maxint with sys.maxsize.
+* Compatibility with WeeWX 4.x and 5.x.
