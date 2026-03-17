@@ -1,4 +1,3 @@
-#
 from setup import ExtensionInstaller
 
 def loader():
