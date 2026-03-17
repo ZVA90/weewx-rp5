@@ -1,3 +1,4 @@
+#
 from setup import ExtensionInstaller
 
 def loader():
@@ -8,8 +9,8 @@ class RP5Installer(ExtensionInstaller):
         super(RP5Installer, self).__init__(
             version='0.5',
             name='rp5',
-            description='Upload archive data to rp5.ru (Python 3 compatible)',
-            author='Sapegin Oleg / Updated by ZVA90',
+            description='Upload archive data to rp5.ru (Python 3 support)',
+            author='Vasili Zakharov',
             author_email='vasiliiazakharov@gmail.com',
             restful_services='user.rp5.StdRP5',
             config={
